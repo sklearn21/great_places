@@ -2,6 +2,7 @@
     package="com.example.great_places">
    <application
         android:label="great_places"
+       android:requestLegacyExternalStorage="true"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

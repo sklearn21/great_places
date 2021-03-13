@@ -1,4 +1,7 @@
+//import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
 class ImageInput extends StatefulWidget {
@@ -8,6 +11,14 @@ class ImageInput extends StatefulWidget {
 
 class _ImageInputState extends State<ImageInput> {
   File _storedImage;
+  final _picker = ImagePicker();
+
+  Future<void> _takePicture() async {
+    //final imageFile = await ImagePicker.getImage(source: ImageSource.camera,maxWidth: 600,);
+
+    PickedFile image = await _picker.getImage(source: ImageSource.camera);
+    final File imageFile = File(image.path);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +46,7 @@ class _ImageInputState extends State<ImageInput> {
             label: Text(
               'Take Picture',
             ),
-            onPressed: () {},
+            onPressed: _takePicture
           ),
         )
       ],
